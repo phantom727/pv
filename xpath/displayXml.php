@@ -7,9 +7,21 @@
   </head>
   <body>
 <?php
-$fileName = $_FILES['xmlFile']['name'];
+function endsWith($haystack, $needle) {
+    return substr_compare($haystack, $needle, -strlen($needle)) === 0;
+}
 
-echo $fileName;
+$fileName = $_FILES['xmlFile']['name'];
+$endsWithXml = endsWith($fileName,".xml");
+
+if ($endsWithXml){
+  echo "Dateiname endet mit XML";
+} else {
+  echo "Dateiname endet nicht mit XML";
+}
+
+echo "result of endsWith:" . endsWith($fileName,".xml");
+// echo $fileName;
 ?>
   </body>
 </html>
