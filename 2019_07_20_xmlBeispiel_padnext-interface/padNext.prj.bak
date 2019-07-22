@@ -1,14 +1,6 @@
 
 <project type="cont" name="padNext" expanded="yes" catalog="no" pluginOwner="-1">
-	<file plugId="3" URL="PADneXt-Schemata_v2_12\padx_adl_v2.12.xsd" catalog="no">
-		<queries/>
-		<namespaces/>
-	</file>
-	<file plugId="3" URL="PADneXt-Schemata_v2_12\padx_auf_v2.12.xsd" catalog="no">
-		<queries/>
-		<namespaces/>
-	</file>
-	<file plugId="3" URL="PADneXt-Schemata_v2_12\padx_basis_v2.12.xsd" catalog="no">
+	<file plugId="3" URL="PADneXt-Schemata_v2_12\padx_qadl_v2.12.xsd" catalog="no">
 		<queries/>
 		<namespaces/>
 	</file>
@@ -16,7 +8,15 @@
 		<queries/>
 		<namespaces/>
 	</file>
-	<file plugId="3" URL="PADneXt-Schemata_v2_12\padx_qadl_v2.12.xsd" catalog="no">
+	<file plugId="3" URL="PADneXt-Schemata_v2_12\padx_basis_v2.12.xsd" catalog="no">
+		<queries/>
+		<namespaces/>
+	</file>
+	<file plugId="3" URL="PADneXt-Schemata_v2_12\padx_auf_v2.12.xsd" catalog="no">
+		<queries/>
+		<namespaces/>
+	</file>
+	<file plugId="3" URL="PADneXt-Schemata_v2_12\padx_adl_v2.12.xsd" catalog="no">
 		<queries/>
 		<namespaces/>
 	</file>

@@ -23,6 +23,68 @@ function extractFirstName($i, $xpath) {
 	return $nodeList->item(0)->nodeValue ;
 }
 
+function getTreatmentTypeName($treatmentTypeId) {
+	
+	switch ($treatmentTypeId) {
+    case 0:
+        return "ambulant";
+        break;
+    case 1:
+        return"Stationäre Behandlung";
+        break;
+    case 2:
+        return "Stationäre Mitbehandlung";
+        break;
+		case 3:
+        return "Vorstationäre Behandlung";
+        break;
+		case 4:
+        return "Nachstationäre Behandlung";
+        break;
+		case 5:
+        return "Konsiliarbehandlung";
+        break;
+		
+}
+}
+
+function displayTreatments ($i, $xpath) {
+	$query="/*[local-name()='rechnungen' and namespace-uri()='http://padinfo.de/ns/pad']/*[local-name()='rechnung' and namespace-uri()='http://padinfo.de/ns/pad'][".$i."]/*[local-name()='abrechnungsfall' and namespace-uri()='http://padinfo.de/ns/pad']";
+	$nodeList = $xpath->evaluate($query);
+	
+	
+	
+	echo "<table border=1>";
+	echo "<tr>";
+	echo "<th>";
+	echo "Nr.";
+	echo "</th>";
+	echo "<th>";
+	echo "Behandlung.";
+	echo "</th>";
+	echo "</tr>";
+
+	$i=1;
+	foreach($nodeList as $node) {
+		$treatmentTypeQuery = $node->getNodePath() . "/*[local-name()='bema' and namespace-uri()='http://padinfo.de/ns/pad'][1]/*[local-name()='behandlungsart' and namespace-uri()='http://padinfo.de/ns/pad'][1]";
+		$treatmentType = $xpath->evaluate($treatmentTypeQuery)->item(0)->nodeValue;
+		
+		echo "<tr>";
+		echo "<td>";
+		echo $i;
+		echo "</td>";
+		echo "<td>";
+		echo getTreatmentTypeName($treatmentType);
+		echo "</td>";
+		echo "</tr>";
+
+		$i= $i + 1;
+	}
+	
+
+	
+	echo "</table>";
+}
 
 
 
@@ -102,6 +164,7 @@ for ($i = 1; $i <= $RechungAnzahl ; $i++) {
 	$firstName = extractFirstName($i, $xpath);
 	echo "Name:". $name."<br>";
 	echo "Vorname:".$firstName;
+	displayTreatments($i, $xpath);
 }
 
 
